@@ -35,14 +35,9 @@ La mayoria de las colecciones tienen bastante comportamiento en comun. Por ejemp
 El mismo principio se aplica para implementaciones especificas:
 
 ```scala
-scala>     List(1, 2, 3)
-res0: List[Int] = List(1, 2, 3)
-
-scala>     import collection.immutable.HashMap
-import collection.immutable.HashMap
-
-scala>     HashMap("x" -> 24, "y" -> 25, "z" -> 26)
-res1: scala.collection.immutable.HashMap[String,Int] = Map(x -> 24, y -> 25, z -> 26)
+    List(1, 2, 3)
+    import collection.immutable.HashMap
+    HashMap("x" -> 24, "y" -> 25, "z" -> 26)
 ```
 
 All collections support the API provided by `Traversable`, but specialize types wherever this makes sense. For instance the `map` method in class `Traversable` returns another `Traversable` as its result. But this result type is overridden in subclasses. For instance, calling `map` on a `List` yields again a `List`, calling it on a `Set` yields again a `Set` and so on.
@@ -51,8 +46,7 @@ Todas las colecciones soportan el API de `Traversable`, pero especializan los ti
 Por ejemplo, el metodo `map` de la clase `Traversable` devuelve otro `Traversable` como resultado, pero esto es sobreescrito en las subclases, entonces hacer `map` en una `List` devuelve `List` y en un `Set` devuelve un `Set`.
 
 ```scala
-scala>     List(1, 2, 3) map (_ + 1)
-res2: List[Int] = List(2, 3, 4)
+    List(1, 2, 3) map (_ + 1)
 ```
 
 La mayoria de las clases en la jerarquia de colecciones existen en tres variantes: base, mutable, e inmutable. (Excepto `Buffer` que solo existe como mutable)
@@ -94,10 +88,8 @@ El trait `Traversable` define varias opeaciones cobre colleciones, entre las mas
     min
     max
 
-
 ```scala
-scala>   List("En", "un", "lugar", "de", "la", "mancha").
-     |   filter( word => word.length > 3).
-     |   map( word => word.toUpperCase)
-res3: List[String] = List(LUGAR, MANCHA)
+  List("En", "un", "lugar", "de", "la", "mancha").
+  filter( word => word.length > 3).
+  map( word => word.toUpperCase)
   ```
