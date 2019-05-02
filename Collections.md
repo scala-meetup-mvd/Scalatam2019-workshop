@@ -93,3 +93,17 @@ El trait `Traversable` define varias opeaciones cobre colleciones, entre las mas
   filter( word => word.length > 3).
   map( word => word.toUpperCase)
   ```
+
+## Un ejemplo mas complejo
+
+En src/main/scala/scalatam hay un template que lee un archivo con el contenido de "El Quijote" en una coleccion de lineas.
+Escribamos un programa scala que imprima:
+
+1)  Cantidad total de lineas
+
+2) Cantidad de lineas que contienen la palabra "Quijote" (sugerencia: usar el metodo `contains` de String)
+
+3) Cantidad total de palabras
+
+4) Las 10 palabras mas usadas
+

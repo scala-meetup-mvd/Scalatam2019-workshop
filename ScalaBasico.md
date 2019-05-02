@@ -1,5 +1,8 @@
 # Scala básico
 
+Puedes seguir los ejemplos en https://scalafiddle.io/ 
+Recomendamos instalar sbt (the Scala build tool) https://www.scala-sbt.org/download.html
+
 ## Expresiones
 
 En Scala todo es una expresión (cada sentencia "devuelve" un valor).
@@ -66,8 +69,8 @@ El resultado de la ultima expresión del bloque es también el resultado total d
 
 ```scala
 println({
-val x = 1 + 1
-x + 1
+  val x = 1 + 1
+  x + 1
 }) // 3
 ```
 
@@ -136,8 +139,8 @@ Los métodos también pueden tener expresiones de varias lineas.
 
 ```scala
 def getSquareString(input: Double): String = {
-val square = input * input
-square.toString
+  val square = input * input
+  square.toString
 }
 ```
 
@@ -151,7 +154,7 @@ Se puede definir clases con la palabra clave *class* seguida del nombre y los pa
 ```scala
 class Greeter(prefix: String, suffix: String) {
 def greet(name: String): Unit =
-println(prefix + name + suffix)
+  println(prefix + name + suffix)
 }
 ```
 
@@ -185,15 +188,15 @@ Y son comparadas por valor.
 
 ```scala
 if (point == anotherPoint) {
-println(point + " and " + anotherPoint + " are the same.")
+  println(point + " and " + anotherPoint + " are the same.")
 } else {
-println(point + " and " + anotherPoint + " are different.")
+  println(point + " and " + anotherPoint + " are different.")
 } // Point(1,2) and Point(1,2) are the same.
 
 if (point == yetAnotherPoint) {
-println(point + " and " + yetAnotherPoint + " are the same.")
+  println(point + " and " + yetAnotherPoint + " are the same.")
 } else {
-println(point + " and " + yetAnotherPoint + " are different.")
+  println(point + " and " + yetAnotherPoint + " are different.")
 } // Point(1,2) and Point(2,2) are different.
 ```
 
@@ -207,11 +210,11 @@ Puedes definir objectos con la palabra clave *object*.
 
 ```scala
 object IdFactory {
-private var counter = 0
-def create(): Int = {
-counter += 1
-counter
-}
+  private var counter = 0
+  def create(): Int = {
+    counter += 1
+    counter
+  }
 }
 ```
 
@@ -232,7 +235,7 @@ Los traits se definen con la palabra clave *trait*.
 
 ```scala
 trait Greeter {
-def greet(name: String): Unit
+  def greet(name: String): Unit
 }
 ```
 
@@ -240,8 +243,8 @@ Los traits pueden también tener implementación por defecto.
 
 ```scala
 trait Greeter {
-def greet(name: String): Unit =
-println("Hello, " + name + "!")
+  def greet(name: String): Unit =
+    println("Hello, " + name + "!")
 }
 ```
 
@@ -251,9 +254,9 @@ También puedes extender traits con la palabra clave *extends* y sobrescribir un
 class DefaultGreeter extends Greeter
 
 class CustomizableGreeter(prefix: String, postfix: String) extends Greeter {
-override def greet(name: String): Unit = {
-println(prefix + name + postfix)
-}
+    override def greet(name: String): Unit = {
+    println(prefix + name + postfix)
+  }
 }
 
 val greeter = new DefaultGreeter()
@@ -273,7 +276,15 @@ Usando un objeto, puedes definir el método principal de la siguiente forma:
 
 ```scala
 object Main {
-def main(args: Array[String]): Unit =
-println("Hello, Scala developer!")
+  def main(args: Array[String]): Unit =
+    println("Hello, Scala developer!")
 }
+```
+
+
+## Interpolacion de Strings
+
+Scala tiene una sintaxis especial para evaluar expresiones dentro de un String agregando una `s` al inicio:
+```scala
+println(s" Hola ${nombre} , el largo de la lista es ${list.length} y dos es ${ 1+1 } ")
 ```
